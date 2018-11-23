@@ -6,7 +6,7 @@ const range = (start, end) => {
     result.push(i);
   }
   return result;
-}
+};
 
 export const disabledStartHours = (end) => {
   if (end) {
@@ -15,7 +15,7 @@ export const disabledStartHours = (end) => {
     return array;
   }
   return [];
-}
+};
 
 export const disabledStartMinutes = (end, hour) => {
   const h = moment(end).hour();
@@ -25,7 +25,7 @@ export const disabledStartMinutes = (end, hour) => {
     return array;
   }
   return [];
-}
+};
 
 export const disabledStartSeconds = (end, hour, minute) => {
   const h = moment(end).hour();
@@ -36,7 +36,7 @@ export const disabledStartSeconds = (end, hour, minute) => {
     return array;
   }
   return [];
-}
+};
 
 export const disabledEndHours = (start) => {
   if (start) {
@@ -45,7 +45,7 @@ export const disabledEndHours = (start) => {
     return array;
   }
   return [];
-}
+};
 
 export const disabledEndMinutes = (start, hour) => {
   const h = moment(start).hour();
@@ -55,7 +55,7 @@ export const disabledEndMinutes = (start, hour) => {
     return array;
   }
   return [];
-}
+};
 
 export const disabledEndSeconds = (start, hour, minute) => {
   const h = moment(start).hour();
@@ -66,4 +66,4 @@ export const disabledEndSeconds = (start, hour, minute) => {
     return array;
   }
   return [];
-}
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 import { DatePicker } from 'antd';
 import connectField from 'uniforms/connectField';
+import { func, object, arrayOf } from 'prop-types';
 
 const DateRange = ({ onChange, value }) => (
   <DatePicker.RangePicker
@@ -14,3 +15,8 @@ const DateRange = ({ onChange, value }) => (
 );
 
 export const DatePickerConnect = connectField(DateRange);
+
+DateRange.propTypes = {
+  onChange: func.isRequired,
+  value: arrayOf(object).isRequired
+};

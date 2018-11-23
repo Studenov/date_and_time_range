@@ -9,22 +9,22 @@ export const checkStart = (onChange, time, end) => {
   const eh = moment(end).hour();
   if (sh === eh && sm === em && (ss === es || ss >= es)) {
     const newEnd = moment(time).second(es - 1);
-    return onChange({ start: newEnd, end});
+    return onChange({ start: newEnd, end });
   }
   if (sh === eh && sm >= em) {
     const newEnd = moment(time).minute(em - 1);
-    return onChange({ start: newEnd, end});
+    return onChange({ start: newEnd, end });
   }
   if (eh === 0 && em === 0 && es === 0) {
     const newEnd = moment('000000', 'hmmss');
-    return onChange({ start: newEnd, end});
+    return onChange({ start: newEnd, end });
   }
   if (sh >= eh) {
     const newEnd = moment(time).hour(eh).minute(em).second(es - 1);
-    return onChange({ start: newEnd, end});
+    return onChange({ start: newEnd, end });
   }
-  return onChange({ start: time, end});
-}
+  return onChange({ start: time, end });
+};
 
 export const checkEnd = (onChange, time, start) => {
   const ss = moment(start).second();
@@ -45,5 +45,5 @@ export const checkEnd = (onChange, time, start) => {
     const newEnd = moment(time).hour(sh).minute(sm).second(ss + 1);
     return onChange({ start, end: newEnd });
   }
-  return onChange({ start, end: time});
-}
+  return onChange({ start, end: time });
+};
