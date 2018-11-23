@@ -5,8 +5,8 @@ import connectField from 'uniforms/connectField';
 import {
   disabledStartHours, disabledStartMinutes, disabledStartSeconds,
   disabledEndHours, disabledEndMinutes, disabledEndSeconds
-} from './helpers/disabledTime';
-import { checkStart, checkEnd } from './helpers/checkTime';
+} from '../helpers/disabledTime';
+import { checkStart, checkEnd } from '../helpers/checkTime';
 
 const TimeRange = ({ onChange, value: { start, end } }) => (
   <section>

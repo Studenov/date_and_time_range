@@ -7,11 +7,7 @@ export const checkStart = (onChange, time, end) => {
   const em = moment(end).minute();
   const sh = moment(time).hour();
   const eh = moment(end).hour();
-  if (sh === eh && sm === em && ss === es) {
-    const newEnd = moment(time).second(es - 1);
-    return onChange({ start: newEnd, end});
-  }
-  if (sh === eh && sm === em && ss >= es) {
+  if (sh === eh && sm === em && (ss === es || ss >= es)) {
     const newEnd = moment(time).second(es - 1);
     return onChange({ start: newEnd, end});
   }
@@ -37,13 +33,9 @@ export const checkEnd = (onChange, time, start) => {
   const em = moment(time).minute();
   const sh = moment(start).hour();
   const eh = moment(time).hour();
-  if (sh === eh && sm === em && ss === es) {
+  if (sh === eh && sm === em && (ss === es || ss >= es)) {
     const newEnd = moment(time).second(ss + 1);
     return onChange({ start, end: newEnd });
-  }
-  if (sh === eh && sm === em && ss >= es) {
-    const newEnd = moment(time).second(ss + 1);
-    return onChange({ start, end: newEnd })
   }
   if (sh === eh && sm >= em) {
     const newEnd = moment(time).minute(sm + 1);
